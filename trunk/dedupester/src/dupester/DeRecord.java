@@ -23,7 +23,6 @@ public class DeRecord implements Comparable{
 		trackTitle = "Track Undefined";
 		trackNum = 0;
 		bitRate =0;
-		
 	}
 	
 	public DeRecord(Object aFile){
