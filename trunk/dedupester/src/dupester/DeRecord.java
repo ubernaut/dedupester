@@ -1,6 +1,6 @@
 package dupester;
 
-public class DeRecord {
+public class DeRecord implements Comparable{
 	
 	private String fileName;
 	private int fileSize;
@@ -49,6 +49,13 @@ public class DeRecord {
 	public boolean equals(DeRecord someRecord)	{
 		if(fileName.equals(someRecord.fileName)&&fileSize==someRecord.fileSize)return true;	
 		else return false;
+	}
+	
+	public int compareTo(Object aRecord)
+	{
+		if(((DeRecord) aRecord).fileName ==fileName && ((DeRecord) aRecord).fileSize==fileSize )return 0;
+		if(((DeRecord) aRecord).fileName.compareToIgnoreCase(fileName)==-1)return -1;
+		else return 0;
 	}
 
 }
