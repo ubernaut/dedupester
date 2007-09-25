@@ -10,6 +10,7 @@ public class DeRecord {
 	private String album;
 	private String trackTitle;
 	private int trackNum;
+	private int bitRate;
 	
 	
 	public DeRecord() {
@@ -21,13 +22,31 @@ public class DeRecord {
 		album = "Album Undefined";
 		trackTitle = "Track Undefined";
 		trackNum = 0;
+		bitRate =0;
+		
 	}
 	
-	public DeRecord(Object aFile){}
+	public DeRecord(Object aFile){
+		
+	}
+	
+	public DeRecord(DeRecord someRecord){
+		fileName = someRecord.fileName;
+		fileSize = someRecord.fileSize;
+		filePath = someRecord.filePath;
+		separator = someRecord.separator;
+		artist = someRecord.artist;
+		album = someRecord.album;
+		trackTitle = someRecord.trackTitle;
+		trackNum = someRecord.trackNum;
+		bitrate = someRecord.bitRate;
+	}
+	
 	public void printRecord(){}
+	
 	public void writeRecord(){}
-	public boolean equals(DeRecord someRecord)
-	{
+	
+	public boolean equals(DeRecord someRecord)	{
 		if(fileName.equals(someRecord.fileName)&&fileSize.equals(someRecord.fileSize))return true;	
 		else return false;
 	}
