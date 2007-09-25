@@ -39,7 +39,7 @@ public class DeRecord {
 		album = someRecord.album;
 		trackTitle = someRecord.trackTitle;
 		trackNum = someRecord.trackNum;
-		bitrate = someRecord.bitRate;
+		bitRate = someRecord.bitRate;
 	}
 	
 	public void printRecord(){}
@@ -47,7 +47,7 @@ public class DeRecord {
 	public void writeRecord(){}
 	
 	public boolean equals(DeRecord someRecord)	{
-		if(fileName.equals(someRecord.fileName)&&fileSize.equals(someRecord.fileSize))return true;	
+		if(fileName.equals(someRecord.fileName)&&fileSize==someRecord.fileSize)return true;	
 		else return false;
 	}
 
