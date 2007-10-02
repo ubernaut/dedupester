@@ -1,4 +1,4 @@
-package dupester;
+//package dupester;
 import java.io.File;
 
 public class DeRecord implements Comparable{
