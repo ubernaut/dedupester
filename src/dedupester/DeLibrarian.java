@@ -1,4 +1,5 @@
-package dupester;
+package dedupester;
+
 import java.io.File;
 
 public class DeLibrarian {

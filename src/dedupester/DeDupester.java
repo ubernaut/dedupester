@@ -1,5 +1,6 @@
-package dupester;
-import java.awt.FileDialog;
+package dedupester;
+
+//import java.awt.FileDialog;
 import java.io.File;
 
 public class DeDupester {
@@ -13,12 +14,12 @@ public class DeDupester {
 	 */
 	public static void main(String[] args) {
 
-		//no parmaters implies GUI mode
+		//no parameters implies GUI mode
 		if(args.length == 0)
 		{
 			//Start the DeDupester GUI here
 		}
-		//any paramaters imply CLI mode
+		//any parameters imply CLI mode
 		else
 		{
 			System.out.println("");
