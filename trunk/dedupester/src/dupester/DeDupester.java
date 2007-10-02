@@ -1,4 +1,4 @@
-//package dupester;
+package dupester;
 import java.awt.FileDialog;
 import java.io.File;
 
