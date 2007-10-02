@@ -1,4 +1,4 @@
-//package dupester;
+package dupester;
 
 public class DeGui {
 
