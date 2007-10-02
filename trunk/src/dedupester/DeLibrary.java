@@ -1,4 +1,5 @@
-package dupester;
+package dedupester;
+
 import java.util.Iterator;
 
 import java.util.TreeSet;
@@ -20,7 +21,7 @@ public class DeLibrary {
 
 	public String toString()
 	{
-		Iterator i = allRecords.iterator();
+		Iterator<DeRecord> i = allRecords.iterator();
 		String s = "";
 		while(i.hasNext())
 			s += "\n" + i.next();

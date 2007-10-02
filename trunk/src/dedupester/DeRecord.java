@@ -1,6 +1,8 @@
-package dupester;
+package dedupester;
+
 import java.io.File;
 
+@SuppressWarnings("unchecked")
 public class DeRecord implements Comparable{
 
 	private String fileName;
