@@ -20,11 +20,11 @@
   * Repair missing or incorrect metadata in a library.
 
 ===Use Cases===
-  # Identify Duplicates
-  # Eliminate Duplicates
-  # Merge Libraries
-  # Organize Library
-  # Repair Metadata
+  # [IdentifyDuplicates Identify Duplicates]
+  # [EliminateDuplicates Eliminate Duplicates]
+  # [MergeLibraries Merge Libraries]
+  # [OrganizeLibrary Organize Library]
+  # [RepairMetadata Repair Metadata]
 
 
 ===Glossary===
