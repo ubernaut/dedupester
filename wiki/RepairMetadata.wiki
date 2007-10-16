@@ -1,0 +1,28 @@
+#summary Repair Metadata use case
+
+===Use Case 6: Repair Metadata===
+
+*Scope:* DeDupester application
+
+*Level:* user goal
+
+*Primary Actor:* User
+
+*Stakeholders and Interests:*
+ _User:_ Wants to repair metadata in their music library.
+ 
+*Preconditions:* Library has consistent folder structure and filenames based on artist, album, and track names or numbers.
+
+*Main Success Scenario:*
+  # User launches DeDupester application and chooses to [RepairMetadata Repair Metadata].
+  # Application prompts for location of library.
+  # User enters library location.
+  # Application scans library for missing or corrupt metadata and presents user with its best guess for corrections.
+  # User reviews suggestions and chooses to continue with repair.
+  # Application prompts user for destination location where repaired files should be written.
+  # User enters location for repaired library to be written.
+  # Application successfully repairs metadata within the library.
+
+*Open Issues:*
+
+Don't allow if any required information is missing (i.e. metadata cannot be inferred from folder/filenames).  Notify user of unsupported file types.  What about backup options?  What is corrupt metadata considered to be?
