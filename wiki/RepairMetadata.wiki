@@ -1,6 +1,6 @@
 #summary Repair Metadata use case
 
-===Use Case 6: Repair Metadata===
+===Use Case 5: Repair Metadata===
 
 *Scope:* DeDupester application
 
