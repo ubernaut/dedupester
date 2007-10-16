@@ -1,1 +1,28 @@
 #summary Eliminate Duplicates use case.
+
+===Use Case 2: Eliminate Duplicates===
+
+*Scope:* DeDupester application
+
+*Level:* user goal
+
+*Primary Actor:* User
+
+*Stakeholders and Interests:* 
+ _User:_  Needs to eliminate Duplicates  with a Dupieness threshold of one ( files with identical names and sizes) existing inside his mp3 collection. 
+
+*Preconditions:* files exist to analyze. 
+
+*Main Success Scenario:* 
+  # User launches DeDuper application and chooses to Eliminate Duplicates.   
+  # Application prompts for location of library and Dupieness threshold. 
+  # User enters library location with a Dupieness threshold of one. 
+  # All files are indexed by name and file-size.
+  # Duplicate files are listed in a text-file for review. 
+  # User is given the option to remove all second encountered occurrences of files, or to select the file they wish to remove.
+  # User chooses to remove all second encountered occurrences of files. 
+  # All Duplicates are moved for manual removal. 
+  # Application Terminates. 
+
+*Open Issues:*
+Only the most basic duplicate files are identified here. Duplicate files with different names may escape detection in this scenario. As the Dupieness Threshold increases, the application will analyze metadata to identify duplicates based on origin albums or differing bitrates.
