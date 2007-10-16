@@ -4,12 +4,12 @@
 	To create a system that will rid music libraries of duplicate records. The system will also provide the ability to organize a music library as well as to repair library metadata.
 
 ===Primary Actors===
-  * DeDupeUser - person with possible music duplication.
+  * User - person with possible music duplication.
   * SuD - the system under discussion.
 
 ===Supporting Actors===
-  * CDDB - possibly for querying metadata.
-  * MusicBrainz - possibly for querying metadata.
+  * !CDDB - possibly for querying metadata.
+  * !MusicBrainz - possibly for querying metadata.
 
 ===DeDupeUser Goals===
   * Identify duplication in a library.
@@ -38,7 +38,6 @@
 
 
 ===Supplementary Specification===
-	System must give users the option to backup files before any destructive alterations are made (such as move, rename, merge, or repair metadata).
-	Preview of rename and metadata edit operations would be nice.
-	Other requirements go here...
-	(FURPS+ - usability, reliability, performance, supportability, + interfaces, technology, reports, documentation, license, etc.)
+  * System must give users the option to backup files before any destructive alterations are made (such as move, rename, merge, or repair metadata).
+  * Preview of rename and metadata edit operations would be nice.
+  * Other requirements go here... (FURPS+ - usability, reliability, performance, supportability, + interfaces, technology, reports, documentation, license, etc.)
