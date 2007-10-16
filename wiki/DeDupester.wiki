@@ -1,4 +1,5 @@
 #summary Inception document
+#labels Phase-Requirements,Featured,Phase-Design
 
 ===DeDupester Vision===
 	To create a system that will rid music libraries of duplicate records. The system will also provide the ability to organize a music library as well as to repair library metadata.
