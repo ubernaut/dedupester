@@ -14,15 +14,15 @@
 *Preconditions:* files exist to analyze. 
 
 *Main Success Scenario:* 
-  # User launches DeDupester application and chooses to Eliminate Duplicates.   
+  # User launches DeDupester application and chooses to [EliminateDuplicates Eliminate Duplicates].   
   # Application prompts for location of library and Dupieness threshold. 
   # User enters library location with a Dupieness threshold of one. 
   # All files are indexed by name and file-size.
   # Duplicate files are listed in a text-file for review. 
   # User is given the option to remove all second encountered occurrences of files, or to select the file they wish to remove.
   # User chooses to remove all second encountered occurrences of files. 
-  # All Duplicates are moved for manual removal. 
-  # Application Terminates. 
+  # All duplicates are moved for manual removal. 
+  # Application terminates. 
 
 *Open Issues:*
 Only the most basic duplicate files are identified here. Duplicate files with different names may escape detection in this scenario. As the Dupieness Threshold increases, the application will analyze metadata to identify duplicates based on origin albums or differing bitrates.
