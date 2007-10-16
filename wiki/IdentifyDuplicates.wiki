@@ -1,4 +1,5 @@
 #summary Identify Duplicates use case.
+#labels Featured,Phase-Design
 
 ===Use Case 1: Identify Duplicates===
 *Scope:* DeDupester application
