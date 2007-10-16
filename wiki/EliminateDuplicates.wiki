@@ -14,7 +14,7 @@
 *Preconditions:* files exist to analyze. 
 
 *Main Success Scenario:* 
-  # User launches DeDuper application and chooses to Eliminate Duplicates.   
+  # User launches DeDupester application and chooses to Eliminate Duplicates.   
   # Application prompts for location of library and Dupieness threshold. 
   # User enters library location with a Dupieness threshold of one. 
   # All files are indexed by name and file-size.
