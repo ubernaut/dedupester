@@ -8,10 +8,10 @@
   * SuD - the system under discussion.
 
 ===Supporting Actors===
-  * !CDDB - possibly for querying metadata.
+  * CDDB - possibly for querying metadata.
   * !MusicBrainz - possibly for querying metadata.
 
-===DeDupeUser Goals===
+===User Goals===
   * Identify duplication in a library.
   * Get rid of duplicate files from a library.
   * Identify duplication between two libraries.
@@ -30,7 +30,7 @@
 ===Glossary===
   * Library - see music library.
   * Music Library - A collection of audio files under a common root directory (e.g. C:\Music\).
-  * Audio files - Files with the following extensions: .mp3 [investigate other file types such as .mp4, etc.].
+  * Audio files - Files with the following extensions: mp3 (investigate other file types such as mp4, etc.).
   * Metadata - Information about audio files including artist name, album name, track name, track number, bitrate, etc.
   * Duplicate - Two or more audio files that have identical pieces of metadata. Various levels of duplication will be defined below.
   * "Regular" duplicate - Files that share identical album name, artist name, and track name.
