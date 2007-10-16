@@ -9,7 +9,7 @@
 *Primary Actor:* User
 
 *Stakeholders and Interests:*
- _DeDupeUser:_ has two mp3 libraries, referred to here as foreign and local. Both of which contain unsorted mp3s.  The user wants to bring the files from the foreign library into the local library but does not want to bring files over that already exist in the local library.
+ _User:_ has two mp3 libraries, referred to here as foreign and local. Both of which contain unsorted mp3s.  The user wants to bring the files from the foreign library into the local library but does not want to bring files over that already exist in the local library.
  
 *Preconditions:* there are two libraries containing mp3s
 
