@@ -1,6 +1,6 @@
 #summary Organize Library use case.
 
-===Use Case 5: Organize Library===
+===Use Case 4: Organize Library===
 
 *Scope:* DeDupester application
 
