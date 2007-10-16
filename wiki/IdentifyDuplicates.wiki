@@ -8,7 +8,8 @@
 *Primary Actor:* User
 
 *Stakeholders and Interests:*
- User: Wants to identify duplicate audio files (based on varying criteria) in a single music library or between two libraries.
+ _User:_ Wants to identify duplicate audio files (based on varying criteria) in a single music library or between two libraries.
+
 *Preconditions:* Files exist to analyze.
 
 *Main success scenario:*
