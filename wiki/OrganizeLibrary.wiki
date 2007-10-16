@@ -1,0 +1,30 @@
+#summary Organize Library use case.
+
+===Use Case 5: Organize Library===
+
+*Scope:* DeDupester application
+
+*Level:* user goal
+
+*Primary Actor:* User
+
+*Stakeholders and Interests:*
+ _User:_ Wants to organize their music library in a consistent way according to file metadata.
+
+*Preconditions:* Library has complete and correct metadata.
+
+*Main Success Scenario:*
+  # User launches DeDupester application and chooses to [OrganizeLibrary Organize Library].
+  # Application prompts for location of library.
+  # User enters library location.
+  # Application prompts user for organization scheme (e.g. Folders named after Artist - Album, files named by Track Number - Album Name - Track Title).
+  # User enters organization scheme.
+  # Application presents preview of organization results.
+  # User accepts.
+  # Application prompts user for destination location where organized files should be written.
+  # User enters location for organized library to be written.
+  # Application successfully organizes library.
+
+*Open Issues:*
+
+Don't allow if any required metadata is missing.  Notify user if unsupported file types may leave orphan tracks (i.e. some tracks in an album will be moved/renamed and others will not)?  Backup options (only by selecting a different destination)?
