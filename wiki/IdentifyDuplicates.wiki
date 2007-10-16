@@ -1,0 +1,22 @@
+#summary Identify Duplicates use case.
+
+===Use Case 1: Identify Duplicates===
+*Scope:* DeDuper application
+
+*Level:* user goal
+
+*Primary Actor:* User
+
+*Stakeholders and Interests:*
+ DeDupeUser: Wants to identify duplicate audio files (based on varying criteria) in a single music library or between two libraries.
+*Preconditions:* Files exist to analyze.
+
+Main success scenario:
+1. User launches DeDuper application and chooses to Identify Duplicates.
+2. Application prompts for library location(s) and Dupieness threshold.
+3. User enters library location(s) and Dupieness threshold.
+4. All files are indexed.
+5. Duplicate files are listed in a text-file for review.
+Open Issues:
+
+Duplicate file detected will vary with Dupieness Threshold.
