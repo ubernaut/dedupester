@@ -14,7 +14,7 @@
 *Preconditions:* there are two libraries containing mp3s
 
 *Main Success Scenario:*
-  # User launches DeDupester application and chooses to [Mergelibraries Merge Libraries].   
+  # User launches DeDupester application and chooses to [MergeLibraries Merge Libraries].   
   # Application prompts for location of libraries and Dupieness threshold. 
   # User enters both library locations with a Dupieness threshold of one. 
   # Files from both libraries are indexed by name and file-size. 
