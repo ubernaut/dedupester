@@ -1,4 +1,4 @@
-#summary Merge Libraries use case
+#summary Use case: Merge Libraries
 #labels Featured,Phase-Design
 
 ===Use Case 3: Merge Libraries===
