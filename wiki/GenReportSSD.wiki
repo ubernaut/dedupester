@@ -1,4 +1,4 @@
-#summary Generate Report use case SSD
+#summary Use case: Generate Report SSD
 
 {{{
 DeDupester System Sequence Diagram
