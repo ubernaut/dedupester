@@ -26,6 +26,7 @@
   # [MergeLibraries Merge Libraries]
   # [OrganizeLibrary Organize Library]
   # [RepairMetadata Repair Metadata]
+  # [GenReportSSD Generate Report]
 
 
 ===Glossary===
