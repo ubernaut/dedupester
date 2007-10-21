@@ -1,4 +1,4 @@
-#summary Organize Library use case.
+#summary Use case: Organize Library
 #labels Featured,Phase-Design
 
 ===Use Case 4: Organize Library===
