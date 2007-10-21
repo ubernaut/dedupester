@@ -73,23 +73,25 @@ public class DeRecord implements Comparable{
 	{
 		String s = "";
 		s += fileName;
-		s += "\n";
+		s += " ";
 		s += fileSize;
-		s += "\n";
+		s += " ";
 		s += filePath;
-		s += "\n";
+		s += " ";
 	/*	s += separator;
-		s += "\n";
+		s += " ";
 		s += artist;
-		s += "\n";
+		s += " ";
 		s += album;
-		s += "\n";
+		s += " ";
 		s += trackTitle;
-		s += "\n";
+		s += " ";
 		s += trackNum;
-		s += "\n";
+		s += " ";
 		s += bitRate;
 	*/
+		s += "\r\n";
+
 		return s;
 	}
 }
