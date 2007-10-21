@@ -1,17 +1,15 @@
 package dedupester;
 
 import java.util.Iterator;
-
 import java.util.TreeSet;
 
-public class DeLibrary {
-
+public class DeLibrary
+{
 	private TreeSet<DeRecord> allRecords;
 
-	public DeLibrary(){
-
+	public DeLibrary()
+	{
 		allRecords=new TreeSet<DeRecord>();
-
 	}
 
 	public boolean add(DeRecord r)
@@ -19,12 +17,17 @@ public class DeLibrary {
 		return allRecords.add(r);
 	}
 
+	public boolean isEmpty()
+	{
+		return allRecords.isEmpty();
+	}
+
 	public String toString()
 	{
 		Iterator<DeRecord> i = allRecords.iterator();
 		String s = "";
 		while(i.hasNext())
-			s += "\n" + i.next();
+			s += i.next();
 
 		return s;
 	}
