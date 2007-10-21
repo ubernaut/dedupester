@@ -1,4 +1,4 @@
-#summary Eliminate Duplicates use case.
+#summary Use case: Eliminate Duplicates
 #labels Featured,Phase-Design
 
 ===Use Case 2: Eliminate Duplicates===
