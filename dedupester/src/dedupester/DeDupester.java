@@ -1,7 +1,8 @@
 package dedupester;
 
 //import java.awt.FileDialog;
-import java.io.File;
+import java.io.*;
+import java.util.Scanner;
 
 public class DeDupester {
 
@@ -9,17 +10,14 @@ public class DeDupester {
 		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 
-		//no parameters implies GUI mode
-		if(args.length == 0)
+		//check for -gui paramater
+		if(args.length != 0 && args[0].equals("-gui"))
 		{
 			//Start the DeDupester GUI here
 		}
-		//any parameters imply CLI mode
+		//no paramaters implies text menu mode
 		else
 		{
 			System.out.println("");
@@ -32,61 +30,75 @@ public class DeDupester {
 			System.out.println("         \\/     \\/        \\/      |__|        \\/     \\/            \\/       	       ");
 			System.out.println("																");
 			System.out.println("                           Welcome to DeDupester");
+			System.out.println();
+			System.out.println("     DeDupester is a program Designed to help you merge mp3 libraries. ");
+			System.out.println("     It can Sort mp3s, Generate Reports on your library,  Eliminate ");
+			System.out.println("     Duplicate songs, and Merge Libraries without copying in redundant mp3s.");
 
-			//check for a defined flag
-			//need to think about multiple flags in one command (later)
-			if(args[0].matches("-[lrdms]"))
+			//start main loop
+			DeLibrarian librarian = new DeLibrarian();
+			String input;
+			Scanner sc = new Scanner(System.in);
+			do
 			{
+
+				//display menu
+				System.out.println();
+				System.out.println("     l    Load library");
+				System.out.println("     r    Generate a report");
+				System.out.println("     d    Quarentine Duplicates");
+				System.out.println("     m    Merge two Libraries");
+				System.out.println("     s    Sort Library");
+				System.out.println("     q    Quit");
+				System.out.println();
+
+				//get menu choice
+				System.out.print("     :");
+				input = sc.nextLine();
+				if(input.length() > 0)
+					input = input.substring(0,1);
+				else
+					input = "";
+
+				//check for defined flags
+
+
 				//load library
-				if(args[0].equals("-l") && args.length >= 2)
+				if(input.equals("l"))
 				{
-					DeLibrarian librarian = new DeLibrarian();
-					File path = new File(args[1]);
+					//prompt for library path
+					System.out.println();
+					System.out.print("Library path: ");
+					String temp = sc.nextLine();
+
+					//load library from path
+					File path = new File(temp);
 					if(path.exists())
+						librarian.createLibrary(path);
+					else
+						System.out.println("Path does not exist.");
+				}
+
+				//generate report
+				if(input.equals("r"))
+				{
+					//prompt for report path
+					System.out.println();
+					System.out.print("Report path: ");
+					String temp = sc.nextLine();
+					File path = new File(temp);
+					try
 					{
-						librarian.createLibrary(new File(args[1]));
-						librarian.printLibraryContents();
+						librarian.generateReport(path);
+					}
+					catch(IOException e)
+					{
+						System.out.println(e);
 					}
 				}
 			}
-			//undefined flags (or -h) get the help screen
-			else
-			{
-				System.out.println("     Description:");
-				System.out.println("                 ");
-				System.out.println("     DeDupester is a program Designed to help you merge mp3 libraries. ");
-				System.out.println("     It can Sort mp3s, Generate Reports on your library,  Eliminate ");
-				System.out.println("     Duplicate songs, and Merge Libraries without copying in redundant mp3s.");
-				System.out.println("   ");
-				System.out.println("     DeDupester Help:");
-				System.out.println("");
-				System.out.println("####################################################");
-				System.out.println("##     Command             ##  Result             ##");
-				System.out.println("####################################################");
-				System.out.println("                           ## ");
-				System.out.println(" C:\\> java DeDupester      ## Start the DeDupester GUI");
-				System.out.println("                           ## ");
-				System.out.println("####################################################");
-				System.out.println("                               ");
-	//			System.out.println("     If you prefer the command line you can launch DeDupster with:");
-				System.out.println("                               ");
-
-				System.out.println("####################################################");
-				System.out.println("##               Command Line Syntax:             ##");
-				System.out.println("####################################################");
-				System.out.println("##                                                ##");
-				System.out.println("## DeDupester <option> -l <path to music library> ##");
-				System.out.println("##                                                ##");
-				System.out.println("####################################################");
-				System.out.println("##   Option                ##  Description        ##");
-				System.out.println("####################################################");
-				System.out.println("                           ## ");
-				System.out.println("     -h                    ## Display this screen");
-				System.out.println("     -r                    ## Generate a report");
-				System.out.println("     -d                    ## Quarentine Duplicates");
-				System.out.println("     -m <path to library>  ## Merge two Libraries");
-				System.out.println("     -s                    ## Sort Library");
-			}
+			while(!input.equals("q"));
+			sc.close();
 		}
 	}
 }
