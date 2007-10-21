@@ -1,4 +1,4 @@
-#summary Repair Metadata use case
+#summary Use case: Repair Metadata
 #labels Featured,Phase-Design
 
 ===Use Case 5: Repair Metadata===
