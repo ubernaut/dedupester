@@ -1,6 +1,6 @@
 package dedupester;
 
-import java.io.File;
+import java.io.*;
 
 public class DeLibrarian {
 
@@ -20,12 +20,21 @@ public class DeLibrarian {
 			if(f.isDirectory())
 				createLibrary(f);
 			else
-				if(f.getName().endsWith(".mp3"))
+				if(f.getName().toLowerCase().endsWith(".mp3"))
 				{
 					DeRecord record = new DeRecord(f);
 					library.add(record);
 				}
 		}
+	}
+
+	public void generateReport(File path) throws IOException
+	{
+		path.createNewFile();
+		PrintWriter pw = new PrintWriter(path);
+		pw.print(library);
+		pw.print("boogers");
+		pw.close();
 	}
 
 	public void printLibraryContents()
