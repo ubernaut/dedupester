@@ -55,42 +55,55 @@ public class DeRecord implements Comparable{
 
 	public void writeRecord(){}
 
-	public boolean equals(DeRecord someRecord)	{
-		if(fileName.equals(someRecord.fileName)&&fileSize==someRecord.fileSize)return true;
-		else return false;
+	//equals is implemented to satisfy TreeSet
+	//tests equality of the DeRecord object, not of a song.
+	public boolean equals(DeRecord someRecord)
+	{
+		if(fileName.equals(someRecord.fileName) && fileSize == someRecord.fileSize && filePath.equals(someRecord.fileSize))
+			return true;
+		else
+			return false;
 	}
 
+	//sorts by path, file name, then size.
 	public int compareTo(Object aRecord)
 	{
 		DeRecord r = (DeRecord) aRecord;
-		if(r.fileName.compareToIgnoreCase(fileName) == -1) return -1;
-		else if(r.fileName == fileName && r.fileSize > fileSize) return -1;
-		else if(r.fileName == fileName && r.fileSize == fileSize) return 0;
-		else return 1;
+
+		if(r.filePath.compareTo(filePath) != 0)
+			return r.filePath.compareTo(filePath);
+		else if(r.fileName.compareTo(fileName) != 0)
+			return r.fileName.compareTo(fileName);
+		else if(r.fileSize > fileSize)
+			return -1;
+		else if(r.fileSize < fileSize)
+			return 1;
+		else
+			return 0;
 	}
 
 	public String toString()
 	{
-		String s = "";
+		String s = "\"";
 		s += fileName;
-		s += " ";
+		s += "\" \"";
 		s += fileSize;
-		s += " ";
+		s += "\" \"";
 		s += filePath;
-		s += " ";
-	/*	s += separator;
-		s += " ";
+	/*	s += "\" \"";
+		s += separator;
+		s += "\" \"";
 		s += artist;
-		s += " ";
+		s += "\" \"";
 		s += album;
-		s += " ";
+		s += "\" \"";
 		s += trackTitle;
-		s += " ";
+		s += "\" \"";
 		s += trackNum;
-		s += " ";
+		s += "\" \"";
 		s += bitRate;
 	*/
-		s += "\r\n";
+		s += "\"\r\n";
 
 		return s;
 	}

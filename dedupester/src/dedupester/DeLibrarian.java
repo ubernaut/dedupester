@@ -33,7 +33,6 @@ public class DeLibrarian {
 		path.createNewFile();
 		PrintWriter pw = new PrintWriter(path);
 		pw.print(library);
-		pw.print("boogers");
 		pw.close();
 	}
 
