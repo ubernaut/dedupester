@@ -46,6 +46,7 @@ public class DeDupester {
 				System.out.println();
 				System.out.println("     l    Load library");
 				System.out.println("     r    Generate a report");
+				System.out.println("     a    Library status");
 				System.out.println("     d    Quarentine Duplicates");
 				System.out.println("     m    Merge two Libraries");
 				System.out.println("     s    Sort Library");
@@ -73,10 +74,7 @@ public class DeDupester {
 
 					//load library from path
 					File path = new File(temp);
-					if(path.exists())
-						librarian.createLibrary(path);
-					else
-						System.out.println("Path does not exist.");
+					librarian.createLibrary(path);
 				}
 
 				//generate report
@@ -95,6 +93,13 @@ public class DeDupester {
 					{
 						System.out.println(e);
 					}
+				}
+
+				//libary status
+				if(input.equals("a"))
+				{
+					//print library size
+					System.out.println("\nRecords loaded in library: " + librarian.getLibrarySize());
 				}
 			}
 			while(!input.equals("q"));
