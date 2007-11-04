@@ -22,6 +22,11 @@ public class DeLibrary
 		return allRecords.isEmpty();
 	}
 
+	public int size()
+	{
+		return allRecords.size();
+	}
+
 	public String toString()
 	{
 		Iterator<DeRecord> i = allRecords.iterator();
