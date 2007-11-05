@@ -83,11 +83,20 @@ public class DeDupester {
 					//prompt for report path
 					System.out.println();
 					System.out.print("Report path: ");
-					String temp = sc.nextLine();
-					File path = new File(temp);
+					String pathString = sc.nextLine();
+					File path = new File(pathString);
+
+					//prompt for report type
+					System.out.print("Report sort type (path, name): ");
+					String typeString = sc.nextLine();
 					try
 					{
-						librarian.generateReport(path);
+						if(typeString.equals("path"))
+							librarian.generateReportByPath(path);
+						else if(typeString.equals("name"))
+							librarian.generateReportByName(path);
+						else
+							System.out.println("Bad report type.");
 					}
 					catch(IOException e)
 					{

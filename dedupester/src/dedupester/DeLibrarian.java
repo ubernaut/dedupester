@@ -32,11 +32,19 @@ public class DeLibrarian {
 		}
 	}
 
-	public void generateReport(File path) throws IOException
+	public void generateReportByPath(File path) throws IOException
 	{
 		path.createNewFile();
 		PrintWriter pw = new PrintWriter(path);
 		pw.print(library);
+		pw.close();
+	}
+
+	public void generateReportByName(File path) throws IOException
+	{
+		path.createNewFile();
+		PrintWriter pw = new PrintWriter(path);
+		pw.print(library.toStringByName());
 		pw.close();
 	}
 
