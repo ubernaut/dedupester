@@ -1,12 +1,7 @@
 package dedupester;
-/*
- * by collin schroeder 11/4/07
- *
- * modified the CompareTo method to detect a collision when
- * the filename and filesize are eaual and ignoring the path
- *
-*/
+
 import java.io.File;
+import java.util.Comparator;
 
 @SuppressWarnings("unchecked")
 public class DeRecord implements Comparable{
@@ -33,6 +28,7 @@ public class DeRecord implements Comparable{
 		trackNum = 0;
 		bitRate =0;
 	}
+
 	public DeRecord(File aFile){
 		this();
 		fileName = aFile.getName();
@@ -71,25 +67,23 @@ public class DeRecord implements Comparable{
 			return false;
 	}
 
-	//sorts by path, file name, then size.
+	//default sort
+	//sorts by path, file name
 	public int compareTo(Object aRecord) throws ClassCastException
 	{
 		if(!(aRecord instanceof DeRecord))
 			throw new ClassCastException("DeRecord object expected.");
 
+		//TreeSet requires .compareTo to match .equals
+		if(this.equals(aRecord))
+			return 0;
+
 		DeRecord r = (DeRecord) aRecord;
 
-		/*if(r.filePath.compareTo(filePath) != 0)
-		return r.filePath.compareTo(filePath);
-	else*/
-	 if(r.fileName.compareTo(fileName) != 0)
-			return r.fileName.compareTo(fileName);
-		else if(r.fileSize > fileSize)
-			return -1;
-		else if(r.fileSize < fileSize)
-			return 1;
+		if(r.filePath.compareTo(filePath) != 0)
+			return r.filePath.compareTo(filePath);
 		else
-			return 0;
+			return r.fileName.compareTo(fileName);
 	}
 
 	public String toString()
@@ -117,4 +111,14 @@ public class DeRecord implements Comparable{
 
 		return s;
 	}
+
+	public String getFileName() {return fileName;}
+	public long getFileSize() {return fileSize;}
+	public String getFilePath() {return filePath;}
+	public String getSeparator() {return separator;};
+	public String getArtist() {return artist;}
+	public String getAlbum() {return album;}
+	public String getTrackTitle() {return trackTitle;}
+	public int getTrackNum() {return trackNum;}
+	public int getBitRate() {return bitRate;}
 }
