@@ -66,8 +66,11 @@ public class DeRecord implements Comparable{
 	}
 
 	//sorts by path, file name, then size.
-	public int compareTo(Object aRecord)
+	public int compareTo(Object aRecord) throws ClassCastException
 	{
+		if(!(aRecord instanceof DeRecord))
+			throw new ClassCastException("DeRecord object expected.");
+
 		DeRecord r = (DeRecord) aRecord;
 
 		if(r.filePath.compareTo(filePath) != 0)
