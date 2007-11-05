@@ -1,5 +1,11 @@
 package dedupester;
-
+/*
+ * by collin schroeder 11/4/07
+ *
+ * modified the CompareTo method to detect a collision when
+ * the filename and filesize are eaual and ignoring the path
+ *
+*/
 import java.io.File;
 
 @SuppressWarnings("unchecked")
@@ -73,9 +79,10 @@ public class DeRecord implements Comparable{
 
 		DeRecord r = (DeRecord) aRecord;
 
-		if(r.filePath.compareTo(filePath) != 0)
-			return r.filePath.compareTo(filePath);
-		else if(r.fileName.compareTo(fileName) != 0)
+		/*if(r.filePath.compareTo(filePath) != 0)
+		return r.filePath.compareTo(filePath);
+	else*/
+	 if(r.fileName.compareTo(fileName) != 0)
 			return r.fileName.compareTo(fileName);
 		else if(r.fileSize > fileSize)
 			return -1;
