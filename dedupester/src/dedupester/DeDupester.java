@@ -5,17 +5,19 @@ import java.io.*;
 import java.util.Scanner;
 
 public class DeDupester {
-
+//private DeGui myGui;
 	public DeDupester() {
 		// TODO Auto-generated constructor stub
+		
 	}
 
 	public static void main(String[] args) {
 
 		//check for -gui paramater
-		if(args.length != 0 && args[0].equals("-gui"))
+		if(args.length != 0 && args[0].equals("--gui"))
 		{
 			//Start the DeDupester GUI here
+			DeGui myGui = new DeGui();
 		}
 		//no paramaters implies text menu mode
 		else
@@ -109,6 +111,41 @@ public class DeDupester {
 				{
 					//print library size
 					System.out.println("\nRecords loaded in library: " + librarian.getLibrarySize());
+				}
+				
+				if(input.equals("d"))
+				{
+					//prompt for library path
+					System.out.println();
+					System.out.print("Library path: ");
+					String temp = sc.nextLine();
+
+					//load library from path
+					File path = new File(temp);
+					librarian.createLibrary(path);
+					
+					//prompt for report path
+					System.out.println();
+					System.out.print("Report path: ");
+					String pathString = sc.nextLine();
+					File repPath = new File(pathString);
+
+					//prompt for report type
+					System.out.print("Report sort type (path, name): ");
+					String typeString = sc.nextLine();
+					try
+					{
+						if(typeString.equals("path"))
+							librarian.generateReportByPath(repPath);
+						else if(typeString.equals("name"))
+							librarian.generateReportByName(repPath);
+						else
+							System.out.println("Bad report type.");
+					}
+					catch(IOException e)
+					{
+						System.out.println(e);
+					}
 				}
 			}
 			while(!input.equals("q"));
