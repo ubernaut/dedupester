@@ -49,7 +49,7 @@ public class DeDupester {
 				System.out.println("     l    Load library");
 				System.out.println("     r    Generate a report");
 				System.out.println("     a    Library status");
-				System.out.println("     d    Quarentine Duplicates");
+				System.out.println("     e    Extract Unique Files");
 				System.out.println("     m    Merge two Libraries");
 				System.out.println("     s    Sort Library");
 				System.out.println("     q    Quit");
@@ -113,7 +113,7 @@ public class DeDupester {
 					System.out.println("\nRecords loaded in library: " + librarian.getLibrarySize());
 				}
 				
-				if(input.equals("d"))
+				if(input.equals("e"))
 				{
 					//prompt for library path
 					System.out.println();
@@ -124,28 +124,13 @@ public class DeDupester {
 					File path = new File(temp);
 					librarian.createLibrary(path);
 					
-					//prompt for report path
+					//prompt for path to uniquesFolder
 					System.out.println();
-					System.out.print("Report path: ");
+					System.out.print("specify a path for me to move unique files into");
 					String pathString = sc.nextLine();
-					File repPath = new File(pathString);
 
-					//prompt for report type
-					System.out.print("Report sort type (path, name): ");
-					String typeString = sc.nextLine();
-					try
-					{
-						if(typeString.equals("path"))
-							librarian.generateReportByPath(repPath);
-						else if(typeString.equals("name"))
-							librarian.generateReportByName(repPath);
-						else
-							System.out.println("Bad report type.");
-					}
-					catch(IOException e)
-					{
-						System.out.println(e);
-					}
+					librarian.Quarentine(pathString);
+					
 				}
 			}
 			while(!input.equals("q"));
