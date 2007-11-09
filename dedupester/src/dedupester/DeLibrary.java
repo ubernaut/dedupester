@@ -3,6 +3,7 @@ package dedupester;
 import java.util.Iterator;
 import java.util.TreeSet;
 import java.util.Comparator;
+import java.io.File;
 
 public class DeLibrary
 {
@@ -54,7 +55,10 @@ public class DeLibrary
 
 		return s;
 	}
-
+	public TreeSet getRecordsByName()
+	{
+		return recordsByName;
+	}
 	//sorts by file name, then size
 	final Comparator<DeRecord> NAME_ORDER = new Comparator<DeRecord>()
 	{
