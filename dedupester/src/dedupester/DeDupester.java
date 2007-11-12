@@ -8,7 +8,7 @@ public class DeDupester {
 //private DeGui myGui;
 	public DeDupester() {
 		// TODO Auto-generated constructor stub
-		
+
 	}
 
 	public static void main(String[] args) {
@@ -112,25 +112,15 @@ public class DeDupester {
 					//print library size
 					System.out.println("\nRecords loaded in library: " + librarian.getLibrarySize());
 				}
-				
+
 				if(input.equals("e"))
 				{
-					//prompt for library path
-					System.out.println();
-					System.out.print("Library path: ");
-					String temp = sc.nextLine();
-
-					//load library from path
-					File path = new File(temp);
-					librarian.createLibrary(path);
-					
 					//prompt for path to uniquesFolder
 					System.out.println();
-					System.out.print("specify a path for me to move unique files into");
+					System.out.print("Extract to: ");
 					String pathString = sc.nextLine();
 
 					librarian.Quarentine(pathString);
-					
 				}
 			}
 			while(!input.equals("q"));
