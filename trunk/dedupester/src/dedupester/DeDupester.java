@@ -119,8 +119,9 @@ public class DeDupester {
 					System.out.println();
 					System.out.print("Extract to: ");
 					String pathString = sc.nextLine();
+					File quarFolder = new File(pathString);
 
-					librarian.Quarentine(pathString);
+					librarian.quarentine(quarFolder);
 				}
 			}
 			while(!input.equals("q"));

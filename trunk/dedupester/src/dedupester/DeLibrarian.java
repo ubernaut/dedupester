@@ -47,17 +47,17 @@ public class DeLibrarian {
 		pw.print(library.toStringByName());
 		pw.close();
 	}
-	
+
 	public void printLibraryContents()
 	{
 		System.out.println("\n" + library);
 	}
-	
-	public void Quarentine(String quarPath)
+
+	public void quarentine(File quarFolder)
 	{
-		File quarFolder = new File(quarPath);
 		boolean folderMade=quarFolder.mkdir();
-		if(!folderMade){System.out.println("Folder Already Exists!");}
+		if(!folderMade)
+			System.out.println("Folder Already Exists!");
 		else
 		{
 			TreeSet uniqueFiles = library.getRecordsByName();
@@ -65,14 +65,15 @@ public class DeLibrarian {
 			{
 				DeRecord uRecord = ((DeRecord)uniqueRecord);
 				File sourceFile = new File(uRecord.getFilePath(), uRecord.getFileName());
-				File destFile = new File(quarPath, uRecord.getFileName());
+				File destFile = new File(quarFolder, uRecord.getFileName());
 				boolean success = sourceFile.renameTo(destFile);
-				if(!success)break;
+				if(!success)
+					break;
 			}
 		}
-		
+
 	}
-	
+
 	public int getLibrarySize()
 	{
 		return library.size();
