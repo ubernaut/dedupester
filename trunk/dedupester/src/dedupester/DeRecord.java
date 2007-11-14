@@ -81,9 +81,9 @@ public class DeRecord implements Comparable{
 		DeRecord r = (DeRecord) aRecord;
 
 		if(r.filePath.compareTo(filePath) != 0)
-			return r.filePath.compareTo(filePath);
+			return filePath.compareTo(r.getFilePath());
 		else
-			return r.fileName.compareTo(fileName);
+			return fileName.compareTo(r.getFileName());
 	}
 
 	public String toString()
