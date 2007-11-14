@@ -57,7 +57,7 @@ public class DeLibrarian {
 	{
 		boolean folderMade=quarFolder.mkdir();
 		if(!folderMade)
-			System.out.println("Folder Already Exists!");
+			System.out.println("Folder could not be created!");
 		else
 		{
 			TreeSet uniqueFiles = library.getRecordsByName();
