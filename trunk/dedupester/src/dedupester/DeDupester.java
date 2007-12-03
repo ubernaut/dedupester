@@ -50,6 +50,8 @@ public class DeDupester {
 				System.out.println("     r    Generate a report");
 				System.out.println("     a    Library status");
 				System.out.println("     e    Extract Unique Files");
+				System.out.println("     d    Extract Duplicate Files");
+				System.out.println("     f    Find Duplicate Files");
 				System.out.println("     m    Merge two Libraries");
 				System.out.println("     s    Sort Library");
 				System.out.println("     q    Quit");
@@ -112,7 +114,26 @@ public class DeDupester {
 					//print library size
 					System.out.println("\nRecords loaded in library: " + librarian.getLibrarySize());
 				}
+				
+				if(input.equals("d"))
+				{
+					System.out.println();
+					System.out.println("Specify a folder on the same drive");
+					System.out.print("where you would like me to place the duplicates: ");
+					String pathString = sc.nextLine();
+					File dupeFolder = new File(pathString);
+					librarian.findDupes();
+					librarian.Dedupe(dupeFolder);					
+				}
+				
+				if(input.equals("f"))
+				{
+					librarian.findDupes();
+					System.out.println("\nDuplicates found: " + librarian.dupeCount());
+					System.out.println("total size: "+librarian.dupeSize());
 
+				}
+				
 				if(input.equals("e"))
 				{
 					//prompt for path to uniquesFolder
