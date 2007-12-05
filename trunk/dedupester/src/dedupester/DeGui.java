@@ -175,7 +175,7 @@ public class DeGui
 
     			//prompt for report type
     			String typeString = JOptionPane.showInputDialog("Report sort type"
-    					                                      + " (path or name): ");
+    					                                      + " (path, name, or dupe): ");
     			try
     			{
     				if((selectValue == JFileChooser.APPROVE_OPTION) &&
@@ -188,6 +188,12 @@ public class DeGui
     					    (typeString.equalsIgnoreCase("name")))
     				{
     					librarian.generateReportByName(path);
+    					setTableContents(path);
+    				}
+    				else if((selectValue == JFileChooser.APPROVE_OPTION) &&
+    					    (typeString.equalsIgnoreCase("dupe")))
+    				{
+    					librarian.generateDupeReportByPath(path);
     					setTableContents(path);
     				}
     				else if (selectValue == JFileChooser.CANCEL_OPTION)
