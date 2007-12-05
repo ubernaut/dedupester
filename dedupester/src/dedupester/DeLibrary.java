@@ -11,59 +11,48 @@ public class DeLibrary
 	private TreeSet<DeRecord> recordsByPath;
 	private TreeSet<DeRecord> recordsByName;
 	private TreeSet<DeRecord> dupesByPath;
+
+	//total size of files in dupesByPath
 	private long dupeSize =((long)0);
+
 	public DeLibrary()
 	{
 		recordsByPath = new TreeSet<DeRecord>();
 		recordsByName = new TreeSet<DeRecord>(NAME_ORDER);
 		dupesByPath = new TreeSet<DeRecord>();
-		
+
 	}
 
 	//adds a DeRecord to ALL different sorts, or none
 	public boolean add(DeRecord r)
 	{
-		boolean flag = recordsByPath.add(r);
-		if(flag)
-			recordsByName.add(r);
-		return flag;
+		boolean success = recordsByPath.add(r);
+		boolean notDupe = true;
+		if(success)
+			notDupe = recordsByName.add(r);
+
+		//failed to add to recordsByName implies filename and size collision
+		//so add to dupe tree
+		if(!notDupe)
+		{
+			notDupe = dupesByPath.add(r);
+			if(notDupe)
+				dupeSize += r.getFileSize();
+		}
+
+		return success;
 	}
+
 	public int nameSize()
 	{
 		return recordsByName.size();
 	}
-	public void findDupes()
-	{
-		TreeSet<DeRecord> dupeCopy = new TreeSet<DeRecord>(recordsByPath);
-		TreeSet<DeRecord> dupeCopyName = new TreeSet<DeRecord>();
-		for(DeRecord switchSort:recordsByName)
-		{
-			if(dupeCopyName.add(switchSort));
-			else break;
-		}
-		DeRecord currentRecord = new DeRecord();
-		while(dupeCopy.size()!=0)
-		{
-			currentRecord = new DeRecord(dupeCopy.first());
-			dupeCopy.remove(currentRecord);
-			
-			//check to see if currentRecord is in recordsbyname
-			if(dupeCopyName.contains(currentRecord))System.out.println(currentRecord.getFileName());
-			//if it is in there do nothing
-			//if it's not in there add it to the dupe list.
-			else
-			{
-				boolean success = dupesByPath.add(currentRecord);				
-				if(success)dupeSize+=currentRecord.getFileSize();
-			};
-		}
-		
-		
-	}
+
 	public long getDupeSize()
 	{
 		return dupeSize;
 	}
+
 	public boolean isEmpty()
 	{
 		return recordsByPath.isEmpty();
@@ -95,9 +84,9 @@ public class DeLibrary
 	}
 	public TreeSet getDupeTree()
 	{
-		return dupesByPath;		
+		return dupesByPath;
 	}
-	
+
 	public TreeSet getRecordsByName()
 	{
 		return recordsByName;

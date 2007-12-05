@@ -52,10 +52,6 @@ public class DeLibrarian {
 	{
 		System.out.println("\n" + library);
 	}
-	public void findDupes()
-	{
-		library.findDupes();
-	}
 	public long dupeSize()
 	{
 		return library.getDupeSize();
