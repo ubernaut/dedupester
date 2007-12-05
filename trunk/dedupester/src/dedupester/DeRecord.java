@@ -6,6 +6,8 @@ import java.util.Comparator;
 @SuppressWarnings("unchecked")
 public class DeRecord implements Comparable{
 
+	private String libRoot;
+
 	private String fileName;
 	private long fileSize;
 	private String filePath;
@@ -37,10 +39,6 @@ public class DeRecord implements Comparable{
         catch(Exception e){System.out.println(e);}
 	}
 
-	public DeRecord(Object aFile){
-
-	}
-
 	public DeRecord(DeRecord someRecord){
 		fileName = someRecord.fileName;
 		fileSize = someRecord.fileSize;
@@ -52,10 +50,6 @@ public class DeRecord implements Comparable{
 		trackNum = someRecord.trackNum;
 		bitRate = someRecord.bitRate;
 	}
-
-	public void printRecord(){}
-
-	public void writeRecord(){}
 
 	//equals is implemented to satisfy TreeSet
 	//tests equality of the DeRecord object, not of a song.
@@ -111,6 +105,9 @@ public class DeRecord implements Comparable{
 
 		return s;
 	}
+
+	public void setLibRoot(String _libRoot) {libRoot = _libRoot;}
+	public String getLibRoot() {return libRoot;}
 
 	public String getFileName() {return fileName;}
 	public long getFileSize() {return fileSize;}
