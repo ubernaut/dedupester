@@ -1,2 +1,2 @@
 #summary Comm. Diagram for createLibrary()
-http://code.google.com/p/dedupester/
+http://dedupester.googlecode.com/svn/trunk/dedupester/diagrams/createlibcommdiag.gif
