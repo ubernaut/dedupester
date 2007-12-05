@@ -114,7 +114,7 @@ public class DeDupester {
 					//print library size
 					System.out.println("\nRecords loaded in library: " + librarian.getLibrarySize());
 				}
-				
+
 				if(input.equals("d"))
 				{
 					System.out.println();
@@ -122,10 +122,9 @@ public class DeDupester {
 					System.out.print("where you would like me to place the duplicates: ");
 					String pathString = sc.nextLine();
 					File dupeFolder = new File(pathString);
-					librarian.findDupes();
-					librarian.Dedupe(dupeFolder);					
+					librarian.Dedupe(dupeFolder);
 				}
-				
+
 				if(input.equals("f"))
 				{
 					librarian.findDupes();
@@ -133,7 +132,7 @@ public class DeDupester {
 					System.out.println("total size: "+librarian.dupeSize());
 
 				}
-				
+
 				if(input.equals("e"))
 				{
 					//prompt for path to uniquesFolder
@@ -142,7 +141,7 @@ public class DeDupester {
 					String pathString = sc.nextLine();
 					File quarFolder = new File(pathString);
 
-					librarian.quarentine(quarFolder);
+					librarian.quarantine(quarFolder);
 				}
 			}
 			while(!input.equals("q"));
