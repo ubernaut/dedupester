@@ -63,6 +63,17 @@ public class DeLibrary
 		return recordsByPath.size();
 	}
 
+	public String dupesByPathToString()
+	{
+		Iterator<DeRecord> i = dupesByPath.iterator();
+		String s = "";
+		while(i.hasNext())
+			s += i.next();
+
+		return s;
+	}
+
+
 	public String toStringByName()
 	{
 		Iterator<DeRecord> i = recordsByName.iterator();

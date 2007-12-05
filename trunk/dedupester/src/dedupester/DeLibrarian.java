@@ -48,6 +48,14 @@ public class DeLibrarian {
 		pw.close();
 	}
 
+	public void generateDupeReportByPath(File path) throws IOException
+	{
+		path.createNewFile();
+		PrintWriter pw = new PrintWriter(path);
+		pw.print(library.dupesByPathToString());
+		pw.close();
+	}
+
 	public void printLibraryContents()
 	{
 		System.out.println("\n" + library);

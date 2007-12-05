@@ -90,7 +90,7 @@ public class DeDupester {
 					File path = new File(pathString);
 
 					//prompt for report type
-					System.out.print("Report sort type (path, name): ");
+					System.out.print("Report sort type (path, name, dupe): ");
 					String typeString = sc.nextLine();
 					try
 					{
@@ -98,6 +98,8 @@ public class DeDupester {
 							librarian.generateReportByPath(path);
 						else if(typeString.equals("name"))
 							librarian.generateReportByName(path);
+						else if(typeString.equals("dupe"))
+							librarian.generateDupeReportByPath(path);
 						else
 							System.out.println("Bad report type.");
 					}
