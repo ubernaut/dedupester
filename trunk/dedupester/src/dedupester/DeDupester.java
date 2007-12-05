@@ -1,16 +1,9 @@
 package dedupester;
 
-//import java.awt.FileDialog;
 import java.io.*;
 import java.util.Scanner;
 
 public class DeDupester {
-//private DeGui myGui;
-	public DeDupester() {
-		// TODO Auto-generated constructor stub
-
-	}
-
 	public static void main(String[] args) {
 
 		//check for -gui paramater
