@@ -13,7 +13,13 @@ public class DeLibrarian {
 
 	//recursively scans dir tree at path, creating records and adding them to library
 	//invalid library path simple adds no files.
+	//private helper method maintains library root path String in each DeRecord
 	public void createLibrary(File path)
+	{
+		createLibrary(path, path.getPath());
+	}
+
+	private void createLibrary(File path, String libRoot)
 	{
 		if(path.exists())
 		{
@@ -21,11 +27,12 @@ public class DeLibrarian {
 			for(File f : filelist)
 			{
 				if(f.isDirectory())
-					createLibrary(f);
+					createLibrary(f, libRoot);
 				else
 					if(f.getName().toLowerCase().endsWith(".mp3"))
 					{
 						DeRecord record = new DeRecord(f);
+						record.setLibRoot(libRoot);
 						library.add(record);
 					}
 			}
@@ -90,32 +97,47 @@ public class DeLibrarian {
 						success = sourceFile.renameTo(destFile);
 						if(i>=100)break;
 					}
-
 				}
 			}
 		}
-
-
 	}
+
+	//extracts unique records to quarFolder
 	public void quarantine(File quarFolder)
 	{
-		boolean folderMade=quarFolder.mkdir();
-		if(!folderMade)
-			System.out.println("Folder could not be created!");
-		else
+		//if quarFolder does not exist, create it
+		if(!quarFolder.exists())
+			quarFolder.mkdir();
+
+		//make sure it was created
+		if(quarFolder.exists())
 		{
-			System.out.println("unique files found: "+library.nameSize());
-			TreeSet uniqueFiles = library.getRecordsByName();
-			for(Object uniqueRecord: uniqueFiles)
+			TreeSet<DeRecord> uniqueFiles = library.getRecordsByName();
+			for(DeRecord uRecord: uniqueFiles)
 			{
-				DeRecord uRecord = ((DeRecord)uniqueRecord);
-				File sourceFile = new File(uRecord.getFilePath(), uRecord.getFileName());
-				File destFile = new File(quarFolder, uRecord.getFileName());
-				boolean success = sourceFile.renameTo(destFile);
-				if(!success)break;
+				String filename = uRecord.getFileName();
+				String sourceFolder = uRecord.getFilePath();
+
+				//cut the libRoot off of the front of sourceFolder, and attach quarFolder
+				String destFolder = quarFolder.getPath() + sourceFolder.replace(uRecord.getLibRoot(), "");
+
+				File sourceFile = new File(sourceFolder, filename);
+				File destFile = new File(destFolder, filename);
+
+				//create the destFolder, multiple dirs if needed
+				new File(destFolder).mkdirs();
+
+				//incremental rename if destFile exists
+				//could happen due to filename collision but no filesize match
+				int count = 0;
+				while(destFile.exists())
+				{
+					count++;
+					destFile = new File(destFolder, "(" + count + ")" + filename);
+				}
+				sourceFile.renameTo(destFile);
 			}
 		}
-
 	}
 
 	public int getLibrarySize()
