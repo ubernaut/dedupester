@@ -54,7 +54,7 @@ public class DeLibrarian {
 	}
 	public void findDupes()
 	{
-		library.findDupes();		
+		library.findDupes();
 	}
 	public long dupeSize()
 	{
@@ -62,7 +62,7 @@ public class DeLibrarian {
 	}
 	public int dupeCount()
 	{
-		return library.getDupeCount();		
+		return library.getDupeCount();
 	}
 	public void Dedupe(File dupeFolder)
 	{
@@ -86,14 +86,14 @@ public class DeLibrarian {
 						success = sourceFile.renameTo(destFile);
 						if(i>=100)break;
 					}
-										
+
 				}
 			}
 		}
-		
-		
+
+
 	}
-	public void quarentine(File quarFolder)
+	public void quarantine(File quarFolder)
 	{
 		boolean folderMade=quarFolder.mkdir();
 		if(!folderMade)
