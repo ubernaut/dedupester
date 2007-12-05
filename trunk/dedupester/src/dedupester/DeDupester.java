@@ -51,7 +51,6 @@ public class DeDupester {
 				System.out.println("     a    Library status");
 				System.out.println("     e    Extract Unique Files");
 				System.out.println("     d    Extract Duplicate Files");
-				System.out.println("     f    Find Duplicate Files");
 				System.out.println("     m    Merge two Libraries");
 				System.out.println("     s    Sort Library");
 				System.out.println("     q    Quit");
@@ -127,10 +126,8 @@ public class DeDupester {
 
 				if(input.equals("f"))
 				{
-					librarian.findDupes();
 					System.out.println("\nDuplicates found: " + librarian.dupeCount());
 					System.out.println("total size: "+librarian.dupeSize());
-
 				}
 
 				if(input.equals("e"))
