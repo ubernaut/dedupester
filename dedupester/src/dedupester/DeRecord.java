@@ -1,7 +1,9 @@
 package dedupester;
 
 import java.io.File;
-import java.util.Comparator;
+import java.io.IOException;
+import org.farng.mp3.MP3File;
+import org.farng.mp3.TagException;
 
 @SuppressWarnings("unchecked")
 public class DeRecord implements Comparable{
@@ -31,10 +33,19 @@ public class DeRecord implements Comparable{
 		bitRate =0;
 	}
 
-	public DeRecord(File aFile){
+	public DeRecord(File aFile)throws IOException, TagException {
 		this();
 		fileName = aFile.getName();
         fileSize = aFile.length();
+        
+        // use jid3lib to set DeRecord attributes based on id3 tags
+        // TODO: error handling; use these attributes in dupe processing... 
+        MP3File taggedFile = new MP3File(aFile);
+        artist = taggedFile.getID3v2Tag().getLeadArtist();
+        album = taggedFile.getID3v2Tag().getAlbumTitle();
+        trackTitle = taggedFile.getID3v2Tag().getSongTitle();
+        trackNum = Integer.getInteger(taggedFile.getID3v2Tag().getTrackNumberOnAlbum(), 0);
+        
         try{filePath = aFile.getParentFile().getCanonicalPath();}
         catch(Exception e){System.out.println(e);}
 	}

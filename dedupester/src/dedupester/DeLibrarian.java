@@ -2,6 +2,8 @@ package dedupester;
 
 import java.io.*;
 import java.util.TreeSet;
+import org.farng.mp3.TagException;
+
 public class DeLibrarian {
 
 	private DeLibrary library;
@@ -31,9 +33,14 @@ public class DeLibrarian {
 				else
 					if(f.getName().toLowerCase().endsWith(".mp3"))
 					{
-						DeRecord record = new DeRecord(f);
-						record.setLibRoot(libRoot);
-						library.add(record);
+						try
+						{
+							DeRecord record = new DeRecord(f);
+							record.setLibRoot(libRoot);
+							library.add(record);
+						}
+						catch (IOException ioe){System.out.println(ioe);}
+						catch (TagException te){System.out.println(te);}
 					}
 			}
 		}
